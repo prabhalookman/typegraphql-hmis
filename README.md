@@ -19,3 +19,11 @@ Bootstrapping - TypeGraphQL 1.1.1
 https://typegraphql.com/docs/bootstrap.html
 
 
+npm install --save pg typeorm bcryptjs
+npm install --save-D @types/bcryptjs
+
+https://typeorm.io/#/using-ormconfig
+
+https://sqlbackupandftp.com/blog/setting-windows-path-for-postgres-tools
+
+createdb -h localhost -p 5432 -U postgres typegraph
