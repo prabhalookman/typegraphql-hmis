@@ -27,3 +27,17 @@ https://typeorm.io/#/using-ormconfig
 https://sqlbackupandftp.com/blog/setting-windows-path-for-postgres-tools
 
 createdb -h localhost -p 5432 -U postgres typegraph
+
+Watch
+=====
+npm i ts-node-dev --save-dev
+
+changed from 
+"start":"nodemon --exec ts-node src/index.ts"
+To
+"start":"ts-node-dev --respawn src/index.ts"
+
+add esModuleInterop : true
+change allowSyntheticDefaultImports : true
+
+npm i class-validator --save
