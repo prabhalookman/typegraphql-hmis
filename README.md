@@ -28,8 +28,8 @@ https://sqlbackupandftp.com/blog/setting-windows-path-for-postgres-tools
 
 createdb -h localhost -p 5432 -U postgres typegraph
 
-Watch
-=====
+Watch changes
+=============
 npm i ts-node-dev --save-dev
 
 changed from 
@@ -37,7 +37,9 @@ changed from
 To
 "start":"ts-node-dev --respawn src/index.ts"
 
-add esModuleInterop : true
+added esModuleInterop : true
 change allowSyntheticDefaultImports : true
 
 npm i class-validator --save
+
+chrome://inspect/#devices

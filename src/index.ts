@@ -1,21 +1,35 @@
+
+import 'dotenv/config';
 import "reflect-metadata";
 import { ApolloServer } from "apollo-server-express";
 import * as Express from "express";
 import { buildSchema } from "type-graphql";
-import formatArgumentValidationError from "type-graphql";
+//import { createConnection } from "typeorm";
+import { connect } from "mongoose";
 
-import { RegisterResolver }  from "../src/modules/user/Register"
-import { createConnection } from "typeorm";
+import { RegisterResolver } from "./modules/user/Register_res"
 
+const MONGO_URL = process.env.MONGO_URL!.toString();
 
 const main = async () => {
-  
-  await createConnection();
+
+  //await createConnection();
+
+  await connect(MONGO_URL, { useNewUrlParser: true }).then(
+  () => {
+    console.log("Connected To The MongoDB.")
+  }).catch(
+    (err) => {
+      console.log("DB Connection Server Error : ", err)
+  });
+
   const schema = await buildSchema({
     resolvers: [RegisterResolver]
   });
 
-  const apolloServer = new ApolloServer({ schema, formatError: formatArgumentValidationError });
+  const apolloServer = new ApolloServer({
+    schema
+  });
 
   const app = Express();
 
@@ -26,4 +40,6 @@ const main = async () => {
   });
 };
 
-main();
+main().catch((error)=>{
+  console.log(error, 'Main Error');
+})

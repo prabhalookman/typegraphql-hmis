@@ -7,6 +7,10 @@
       "outDir": "./dist",
       "moduleResolution": "node",
       "declaration": false,
+      "typeRoots": [
+        "@types",
+        "node_modules/@types"
+      ],  
   
       "composite": false,
       "removeComments": true,

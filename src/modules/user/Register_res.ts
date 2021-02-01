@@ -1,7 +1,7 @@
 import { User } from "../../entity/User";
 import * as bcrypt from "bcryptjs";
 import { Resolver, Query, Mutation, Arg } from "type-graphql";
-import { RegisterInput } from "./register/RegisterInput";
+import { RegisterInput } from "./registerInputTypes/RegisterInput";
 
 @Resolver()
 export class RegisterResolver {
